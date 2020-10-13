@@ -2,10 +2,15 @@
 	<body>
 		<h1>Restaurants</h1>
 
-		{% for r in restaurants %}
-		    <p>{{r.name}}</p>
-            <p><a href='#'>Edit Restaurant</a></p>
-            <p><a href='#'>Delete Restaurant</a></p>
-		{% endfor %}
+		{% if not restaurants %}
+			<p>You currently have no restaurants.</p>
+			<a href = '#'>Create New Restaurant</a>
+		{% else %}
+			{% for r in restaurants %}
+				<p>{{r.name}}</p>
+				<p><a href='#'>Edit Restaurant</a></p>
+				<p><a href='#'>Delete Restaurant</a></p>
+			{% endfor %}
+		{% endif %}
 	</body>
 </html>

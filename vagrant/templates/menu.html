@@ -1,0 +1,36 @@
+<html>
+<body>
+
+<h1>{{restaurant.name}}</h1>
+
+{% if not items %}
+
+<p>You currently have no menu items.</p>
+<a href = '#'>Create New Item</a>
+
+{% else %}
+
+    <a href = '#'>Create New Item</a>
+    {% for courseName in ["Appetizer", "Entree", "Dessert", "Beverage"] %}
+        <h2>{{courseName}}s</h2>
+        {% for i in items if i.course == courseName %}
+        {{i.name}}
+        </br>
+        {{i.description}}
+        </br>
+        {{i.price}}
+        </br>
+        <a href = '#'>Edit</a>
+        </br>
+        <a href = '#' >Delete</a>
+        </br>
+        </br>
+        {% endfor %}
+        </br>
+        </br>
+        </br>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>

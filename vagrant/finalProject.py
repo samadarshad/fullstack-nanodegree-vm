@@ -22,28 +22,31 @@ def newRestaurant():
 
 @app.route('/restaurant/<int:restaurant_id>/edit')
 def editRestaurant(restaurant_id):
-    return "Edit restaurant %s" % restaurant_id
+    # return "Edit restaurant %s" % restaurant_id
+    return render_template('editrestaurant.html', restaurant=restaurant)
 
 @app.route('/restaurant/<int:restaurant_id>/delete')
 def deleteRestaurant(restaurant_id):
-    return "Delete restaurant %s" % restaurant_id
+    return render_template('deleterestaurant.html', restaurant=restaurant)
 
 @app.route('/restaurant/<int:restaurant_id>')
 @app.route('/restaurant/<int:restaurant_id>/menu')
 def showMenu(restaurant_id):
-    return "Menu for restaurant %s" % restaurant_id
+    return render_template('menu.html', restaurant=restaurant, items=items)
 
 @app.route('/restaurant/<int:restaurant_id>/menu/new')
 def newMenuItem(restaurant_id):
-    return "New menu item for restaurant %s" % restaurant_id
+    return render_template('newmenuitem.html', restaurant=restaurant)
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
 def editMenuItem(restaurant_id, menu_id):
-    return "Edit menu item for restaurant %s menu item %s" % (restaurant_id, menu_id)
+    return render_template('editmenuitem.html', item=item)
+    # return "Edit menu item for restaurant %s menu item %s" % (restaurant_id, menu_id)
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete')
 def deleteMenuItem(restaurant_id, menu_id):
-    return "Delete menu item for restaurant %s menu item %s" % (restaurant_id, menu_id)
+    return render_template('deletemenuitem.html', item=item)
+    # return "Delete menu item for restaurant %s menu item %s" % (restaurant_id, menu_id)
 
 
 
