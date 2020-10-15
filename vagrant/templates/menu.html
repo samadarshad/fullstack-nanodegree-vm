@@ -6,11 +6,11 @@
 {% if not items %}
 
 <p>You currently have no menu items.</p>
-<a href = '#'>Create New Item</a>
+<a href = "{{url_for('newMenuItem', restaurant_id=restaurant.id)}}">Create New Item</a>
 
 {% else %}
 
-    <a href = '#'>Create New Item</a>
+<a href = "{{url_for('newMenuItem', restaurant_id=restaurant.id)}}">Create New Item</a>
     {% for courseName in ["Appetizer", "Entree", "Dessert", "Beverage"] %}
         <h2>{{courseName}}s</h2>
         {% for i in items if i.course == courseName %}
