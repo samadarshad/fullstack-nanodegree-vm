@@ -8,7 +8,7 @@ app = Flask(__name__)
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
 
-@app.route('/')
+#@app.route('/')
 @app.route('/restaurants')
 def showRestaurants():
     DBSession = sessionmaker(bind=engine)
@@ -140,11 +140,12 @@ def deleteMenuItem(restaurant_id, menu_id):
     else:
         return render_template('deletemenuitem.html', item=deleteItem)
 
-
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
-    port = int(os.environ.get("PORT"))
     app.run()
 	#app.run(host='0.0.0.0', port=port)
