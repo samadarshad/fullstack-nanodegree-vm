@@ -1,1 +1,1 @@
-web: gunicorn --chdir vagrant finalProject:app
+web: gunicorn app:app
